@@ -1,0 +1,23 @@
+<h2>{{title}}</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Department Name</th>
+      <th>Department Manager</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of service.departments">
+      <td>{{item.departmentName}}</td>
+      <td>
+        {{item.name}}
+        <select id="managerId" name="item" class="form-control" [(ngModel)]="item.name">
+          <option *ngFor="let manager of service.departments" [value]="manager.id">
+            {{manager.name}}
+          </option>
+        </select>
+        <button type="submit" class="btn btn-primary" click="updateManager()">Update Manager</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
